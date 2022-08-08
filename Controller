@@ -1,0 +1,20 @@
+# Position controller
+
+dev0.axis0.controller.config.input_filter_bandwidth = 2.0
+dev0.axis0.controller.config.input_mode = INPUT_MODE_POS_FILTER
+dev0.axis0.controller.config.vel_limit = 35
+dev0.axis0.controller.config.control_mode = CONTROL_MODE_POSITION_CONTROL
+
+
+
+start_liveplotter(lambda:[dev0.axis0.encoder.pos_estimate, dev0.axis0.controller.pos_setpoint])
+start_liveplotter(lambda:[dev0.axis0.motor.current_meas_phA])
+dev0.save_configuration()
+
+start_liveplotter(lambda:[dev0.axis0.encoder.vel_estimate, dev0.axis0.controller.vel_setpoint])
+
+dev0.axis0.requested_state = AXIS_STATE_CLOSED_LOOP_CONTROL
+dev0.axis0.motor.current_meas_phA
+
+dev0.axis0.controller.config.input_mode = INPUT_MODE_TORQUE_RAMP
+dev0.axis0.controller.config.control_mode = CONTROL_MODE_TORQUE_CONTROL

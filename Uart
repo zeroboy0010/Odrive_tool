@@ -1,0 +1,8 @@
+dev0.config.enable_uart_a = False
+dev0.config.gpio1_mode = GPIO_MODE_DIGITAL
+dev0.config.gpio2_mode = GPIO_MODE_DIGITAL
+dev0.config.enable_uart_b = True
+dev0.config.gpio3_mode = GPIO_MODE_UART_B
+dev0.config.gpio4_mode = GPIO_MODE_UART_B
+dev0.reboot()
+dev0.config.uart_a_baudrate
